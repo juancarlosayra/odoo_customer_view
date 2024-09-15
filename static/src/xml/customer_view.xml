@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="CustomerView">
+        <div class="customer-view">
+            <h2>Order Summary</h2>
+            <div class="order-lines">
+                <t t-foreach="state.orderlines" t-as="line">
+                    <div class="order-line">
+                        <span class="product-name"><t t-esc="line.product.display_name"/></span>
+                        <span class="product-quantity"><t t-esc="line.quantity"/></span>
+                        <span class="product-price"><t t-esc="line.price"/></span>
+                    </div>
+                </t>
+            </div>
+            <div class="order-total">
+                <span>Total: </span><span><t t-esc="state.total"/></span>
+            </div>
+        </div>
+    </t>
+</templates>
+

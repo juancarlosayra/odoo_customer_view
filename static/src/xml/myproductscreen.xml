@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve" >
+    <t t-name="myproductscreen" t-inherit="point_of_sale.ProductScreen" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('screen-full-width')]" position="inside">
+            <div>
+                <button type="button" class="btn btn-primary" t-on-click="toggleCustomView">Show Custom View</button>
+            </div>
+            <t t-if="state.showCustomView">
+                <CustomerView/>
+            </t>
+        </xpath>
+    </t>
+</templates>
