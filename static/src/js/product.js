@@ -2,6 +2,7 @@
 odoo.define('customer_view.ProductScreen', function(require) {
     'use strict';
 
+    const { useState } = owl;
     const ProductScreen = require('point_of_sale.ProductScreen');
     const Registries = require('point_of_sale.Registries');
 
@@ -10,19 +11,19 @@ odoo.define('customer_view.ProductScreen', function(require) {
             constructor() {
                 super(...arguments);
                 this.state = useState({
-                    showCustomView: false, // Agrego un estado para condicionar que se muestre la vista
+                    showCustomView : false,
                 });
                 
             }
             // Condicion para que se muestre la vista
             toggleCustomView() {
-                this.showCustomView = !this.showCustomView;
+                this.state.showCustomView = !this.state.showCustomView;
                 console.log("Boton presionado");                
             }
         };
 
     
-    
+    PosProductScreen.template = 'myproductscreen';
     Registries.Component.extend(ProductScreen, PosProductScreen);    
     
     return PosProductScreen;
